@@ -1,0 +1,6 @@
+2019/09/07 23:34:47 Track - :[[{8090 ./log/  }]]
+2019/09/07 23:35:20 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73cdfb56c00a2c7072c0c4 1213}]]
+2019/09/07 23:35:20 Error - :[[Request Host - 127.0.0.1 | Error - Bad Player id]]
+2019/09/07 23:35:24 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73926956c00a0c4f13f5e9 username firstname lastName email gender 1212121 awdaw awdaw}]]
+2019/09/07 23:35:32 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73ce3c56c00a2f39f5970c 1213}]]
+2019/09/07 23:35:32 Error - :[[Request Host - 127.0.0.1 | Error - No Wallet Found]]
