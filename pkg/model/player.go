@@ -1,20 +1,21 @@
 package model
 
 import (
+	"errors"
+
 	common "../common"
 	db "../db"
 	"gopkg.in/mgo.v2/bson"
-	"errors"
 )
 
 type Player struct {
 	AgentID        bson.ObjectId `bson:"agentId" `
-	ActiveSessions string `bson:"active_sessions" `
-	FirstName      string `bson:"firstName" `
-	LastName       string `bson:"lastName" `
+	ActiveSessions string        `bson:"active_sessions" `
+	FirstName      string        `bson:"firstName" `
+	LastName       string        `bson:"lastName" `
 
 	Name     string `bson:"name" `
-	UserName string `bson:"userName" `
+	UserName string `bson:"username" `
 	Email    string `bson:"email" `
 	Gender   string `bson:"gender" `
 
@@ -26,15 +27,15 @@ type Player struct {
 	PlayerClassID string `bson:"playerClassId" `
 	CountryID     string `bson:"countryId" `
 
-	Currency  string        `bson:"currency" `
-	WalletID  bson.ObjectId `bson:"walletId" `
-	ID        bson.ObjectId `bson:"id"`
+	Currency string        `bson:"currency" `
+	WalletID bson.ObjectId `bson:"walletId" `
+	ID       bson.ObjectId `bson:"id"`
 }
 
-func CreatePlayerInDb(player Player) (Player,error) {
+func CreatePlayerInDb(player Player) (Player, error) {
 	playerCollection, session, err := db.GetCollection(playerTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
-		return Player{},err
+		return Player{}, err
 	}
 	defer session.Close()
 	player.ID = bson.NewObjectId()
@@ -45,8 +46,7 @@ func CreatePlayerInDb(player Player) (Player,error) {
 	return player, nil
 }
 
-
-func GetPlayerByIDFromDB(playerID string) ([]Player, error){
+func GetPlayerByIDFromDB(playerID string) ([]Player, error) {
 	var players []Player
 	playerCollection, session, err := db.GetCollection(playerTable, common.GetConfiger().Configs.MongodbName)
 	defer session.Close()
@@ -55,14 +55,14 @@ func GetPlayerByIDFromDB(playerID string) ([]Player, error){
 	}
 
 	if !bson.IsObjectIdHex(playerID) {
-		return nil , errors.New("Invalid player id ")
+		return nil, errors.New("Invalid player id ")
 	}
 	playerCollection.Find(bson.M{"id": bson.ObjectIdHex(playerID)}).All(&players)
 	return players, nil
 }
 
 func ClearPlayer() error {
-	err:= db.ClearCollections(playerTable, common.GetConfiger().Configs.MongodbName)
+	err := db.ClearCollections(playerTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
 		return err
 	}

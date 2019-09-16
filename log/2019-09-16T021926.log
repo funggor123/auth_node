@@ -1,0 +1,8 @@
+2019/09/16 02:19:26 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/16 02:19:38 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e80ae56c00a0d185d5459 1231awdaw23 firs34tna34me lastN3434ame email 27115112 gender 1212121 awdaw awdaw}]]
+2019/09/16 02:19:44 Error - :[[Request Host - 127.0.0.1 | Error - Invalid Auth Token]]
+2019/09/16 02:20:28 Error - :[[Request Host - 127.0.0.1 | Error - No Tokens Found]]
+2019/09/16 02:20:37 Track - :[[Request Host -  127.0.0.1 | Request - {test test}]]
+2019/09/16 02:20:46 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94c656c00a1b71af46a8 1213}]]
+2019/09/16 02:20:46 Error - :[[Request Host - 127.0.0.1 | Error - Bad Player id]]
+2019/09/16 02:21:06 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e80ba56c00a0d185d545c 1213}]]

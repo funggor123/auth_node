@@ -1,0 +1,8 @@
+2019/09/16 02:32:30 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/16 02:32:34 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e827856c00a0dfd5cc605 1231awdaw233 firs34tna34me lastN3434ame email 27115112 gender 1212121 awdaw awdaw}]]
+2019/09/16 02:32:34 Error - :[[Request Host - 127.0.0.1 | Error - No Tokens Found]]
+2019/09/16 02:32:41 Track - :[[Request Host -  127.0.0.1 | Request - {test test}]]
+2019/09/16 02:32:58 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e827856c00a0dfd5cc605 1231awdaw233 firs34tna34me lastN3434ame email 27115112 gender 1212121 awdaw awdaw}]]
+2019/09/16 02:32:58 Error - :[[Request Host - 127.0.0.1 | Error - Auth Token doesn't match with the agent]]
+2019/09/16 02:32:59 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e827856c00a0dfd5cc605 1231awdaw233 firs34tna34me lastN3434ame email 27115112 gender 1212121 awdaw awdaw}]]
+2019/09/16 02:32:59 Error - :[[Request Host - 127.0.0.1 | Error - Auth Token doesn't match with the agent]]

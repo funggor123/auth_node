@@ -1,0 +1,7 @@
+2019/09/07 23:15:09 Track - :[[{8090 ./log/  }]]
+2019/09/07 23:15:10 Track - :[[Request Host -  127.0.0.1 | Request JSON - {1212 }]]
+2019/09/07 23:15:10 Error - :[[Request Host - 127.0.0.1 | Error - json: cannot unmarshal number into Go struct field DepositRequest.money of type string]]
+2019/09/07 23:15:12 Track - :[[Request Host -  127.0.0.1 | Request JSON - {1212 }]]
+2019/09/07 23:15:12 Error - :[[Request Host - 127.0.0.1 | Error - json: cannot unmarshal number into Go struct field DepositRequest.money of type string]]
+2019/09/07 23:15:13 Track - :[[Request Host -  127.0.0.1 | Request JSON - {1212 }]]
+2019/09/07 23:15:13 Error - :[[Request Host - 127.0.0.1 | Error - json: cannot unmarshal number into Go struct field DepositRequest.money of type string]]

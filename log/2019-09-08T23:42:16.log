@@ -1,6 +1,0 @@
-2019/09/08 23:42:16 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
-2019/09/08 23:42:20 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7520b256c00a4e3a67c551 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
-2019/09/08 23:42:20 Error - :[[Request Host - 127.0.0.1 | Error - Bad Agent ID]]
-2019/09/08 23:42:29 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d75215856c00a523863dbe1 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
-2019/09/08 23:42:46 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d75216556c00a523863dbe4 1213}]]
-2019/09/08 23:42:46 Error - :[[Request Host - 127.0.0.1 | Error - The amount of money in the wallet cannot be negative after withdrawal]]

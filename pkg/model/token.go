@@ -1,37 +1,56 @@
 package model
 
 import (
+	"time"
+
 	auth "../auth"
-	db "../db"
 	common "../common"
+	db "../db"
 	"gopkg.in/mgo.v2/bson"
 )
 
 type Token struct {
-	TokenString 	string  `bson:"token_string" `
-	ExpireDate		string  `bson:"expire_date" `
-	AgentID			bson.ObjectId  `bson:"agent_id" `
+	TokenString string        `bson:"token_string" `
+	CreateAt    time.Time     `bson:"create_at"`
+	AgentID     bson.ObjectId `bson:"agent_id" `
 }
 
-func CreateTokenInDB(agentID bson.ObjectId) (string,error) {
+func CreateTokenInDB(agentID bson.ObjectId) (Token, error) {
 	tokenCollection, session, err := db.GetCollection(tokenTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
-		return "", err
+		return Token{}, err
 	}
 	defer session.Close()
-	
-	tokenString := auth.GenerateToken()
-	err = tokenCollection.Insert(Token{TokenString: tokenString, AgentID: agentID})
+
+	token := Token{TokenString: auth.GenerateToken(), AgentID: agentID, CreateAt: time.Now()}
+	err = tokenCollection.Insert(token)
 	if err != nil {
-		return "", err
+		return Token{}, err
 	}
-	return tokenString, nil
+	return token, nil
+}
+
+func GetExpireDate(createAt time.Time, durationInSec int) time.Time {
+	duration := time.Duration(durationInSec) * time.Second
+	expireAt := createAt.Add(duration)
+	return expireAt
 }
 
 func ClearToken() error {
-	err:= db.ClearCollections(tokenTable, common.GetConfiger().Configs.MongodbName)
+	err := db.ClearCollections(tokenTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
 		return err
 	}
 	return nil
+}
+
+func GetTokenFromDB(tokenString string) ([]Token, error) {
+	var tokens []Token
+	tokenCollection, session, err := db.GetCollection(tokenTable, common.GetConfiger().Configs.MongodbName)
+	if err != nil {
+		return nil, err
+	}
+	defer session.Close()
+	tokenCollection.Find(bson.M{"token_string": tokenString}).All(&tokens)
+	return tokens, nil
 }

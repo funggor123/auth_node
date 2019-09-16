@@ -1,4 +1,0 @@
-2019/09/07 14:46:28 Track - :[[{8090 ./log/  }]]
-2019/09/07 14:46:31 Track - :[[Request Host -  127.0.0.1 | Request JSON - {awdawd username firstname lastName email gender 1212121 awdaw awdaw}]]
-2019/09/07 14:46:31 Track - :[[Request Host -  127.0.0.1 | Request JSON - {awdawd username firstname lastName email gender 1212121 awdaw awdaw}]]
-2019/09/07 14:46:31 Error - :[[Request Host - 127.0.0.1 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: null }]]

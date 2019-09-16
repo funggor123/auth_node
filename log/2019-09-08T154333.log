@@ -1,0 +1,5 @@
+2019/09/08 15:43:33 Track - :[[{8090 ./log/  }]]
+2019/09/08 15:43:56 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73926956c00a0c4f13f5e9 username firstname lastName email gender 1212121 awdaw awdaw}]]
+2019/09/08 15:44:09 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d74b13c56c00a1f631b73c8 1213}]]
+2019/09/08 15:45:07 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d74b13c56c00a1f631b73c8 0}]]
+2019/09/08 15:45:07 Error - :[[Request Host - 127.0.0.1 | Error - Key: 'DepositRequest.Money' Error:Field validation for 'Money' failed on the 'required' tag]]

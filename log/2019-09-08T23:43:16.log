@@ -1,6 +1,0 @@
-2019/09/08 23:43:16 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
-2019/09/08 23:43:26 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d75215856c00a523863dbe1 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
-2019/09/08 23:43:26 Error - :[[Request Host - 127.0.0.1 | Error - Bad Agent ID]]
-2019/09/08 23:43:35 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d75219456c00a55e714b4a5 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
-2019/09/08 23:43:56 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7521a756c00a55e714b4a8 1213}]]
-2019/09/08 23:43:56 Error - :[[Request Host - 127.0.0.1 | Error - ObjectIDs must be exactly 12 bytes long (got 0)]]

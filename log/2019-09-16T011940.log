@@ -1,0 +1,8 @@
+2019/09/16 01:19:40 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/16 01:19:58 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94a256c00a1b71af46a5 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:19:58 Error - :[[Request Host - 127.0.0.1 | Error - Bad Agent ID]]
+2019/09/16 01:20:49 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e72ac56c00a0413f89ebd usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:20:51 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e72ac56c00a0413f89ebd usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:20:51 Error - :[[Request Host - 127.0.0.1 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: null }]]
+2019/09/16 01:21:45 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e72ac56c00a0413f89ebd 12312 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:21:45 Error - :[[Request Host - 127.0.0.1 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: null }]]
