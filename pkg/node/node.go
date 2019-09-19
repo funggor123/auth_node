@@ -41,7 +41,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -54,7 +55,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+				c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+					Status: 0, Msg: err.Error()})
 				return
 			}
 
@@ -63,7 +65,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+					c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+						Status: 0, Msg: err.Error()})
 					return
 				}
 			}
@@ -73,7 +76,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+					c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+						Status: 0, Msg: err.Error()})
 					return
 				}
 			}
@@ -82,7 +86,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+				c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+					Status: 0, Msg: err.Error()})
 				return
 			}
 		}
@@ -91,7 +96,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 		if err != nil {
 			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 				err.Error())
-			c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+			c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+				Status: 0, Msg: err.Error()})
 			return
 		}
 	}
@@ -100,7 +106,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -108,7 +115,8 @@ func (node Node) CreatePlayer(c *gin.Context) {
 		err := errors.New("Bad Agent ID")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.CreatePlayerErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -122,16 +130,18 @@ func (node Node) CreatePlayer(c *gin.Context) {
 		Gender:    createPlayerRequest.Gender,
 		CellPhone: createPlayerRequest.CellPhone,
 		BirthDate: createPlayerRequest.BirthDate,
-		Currency:  createPlayerRequest.Currency,
 		WalletID:  wallet.ID,
-		CountryID: createPlayerRequest.CountryID}
+		//Currency:  createPlayerRequest.Currency,
+		//CountryID: createPlayerRequest.CountryID//
+	}
 
 	player, err = model.CreatePlayerInDb(player)
 
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.CreatePlayerErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.CreatePlayerResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -144,10 +154,12 @@ func (node Node) CreatePlayer(c *gin.Context) {
 		Email:     player.Email,
 		Gender:    player.Gender,
 		BirthDate: player.BirthDate,
-		Currency:  player.Currency,
-		ID:        fmt.Sprintf("%x", string(player.ID)),
-		WalletID:  fmt.Sprintf("%x", string(wallet.ID)),
-		CountryID: player.CountryID})
+		//Currency:  player.Currency,
+		//CountryID: player.CountryID,
+		Status:   1,
+		ID:       fmt.Sprintf("%x", string(player.ID)),
+		WalletID: fmt.Sprintf("%x", string(wallet.ID)),
+	})
 	return
 }
 
@@ -163,7 +175,8 @@ func (node Node) GetAgentToken(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.GetTokenErrorResponse{Error: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.GetTokenResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -171,7 +184,8 @@ func (node Node) GetAgentToken(c *gin.Context) {
 		err := errors.New("Bad Username/Password/Failed to Authenticate")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.GetTokenErrorResponse{Error: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.GetTokenResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -179,17 +193,15 @@ func (node Node) GetAgentToken(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.GetTokenErrorResponse{Error: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.GetTokenResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
 	c.JSON(http.StatusOK, response.GetTokenResponse{
+		Status:   1,
 		Token:    "Bearer " + token.TokenString,
 		ExpireAt: common.GetTimeInAllInt(model.GetExpireDate(token.CreateAt, model.ExpireSecond))})
-}
-
-func (node Node) StartAPI(c *gin.Context) {
-
 }
 
 func (node Node) GetGameString(c *gin.Context) {
@@ -216,7 +228,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -229,7 +241,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+				c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 				return
 			}
 
@@ -238,7 +250,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+					c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 					return
 				}
 			}
@@ -247,7 +259,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+				c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 				return
 			}
 		}
@@ -256,7 +268,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 		if err != nil {
 			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 				err.Error())
-			c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+			c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 			return
 		}
 	}
@@ -265,7 +277,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -273,7 +285,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 		err := errors.New("Bad Game id")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -281,7 +293,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -289,7 +301,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 		err := errors.New("Bad Player id")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -297,10 +309,10 @@ func (node Node) LaunchGame(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.LaunchGameErrorResponse{Message: err.Error()})
+		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
-	c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Token: play.TokenString,
+	c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 1, Token: play.TokenString,
 		PlayURL: common.GetConfiger().Configs.GameNodeAddress + "?game_id=" + fmt.Sprintf("%x", string(play.GameID)) +
 			"&player_id=" + fmt.Sprintf("%x", string(play.PlayerID)) +
 			"&token=" + play.TokenString +
@@ -313,7 +325,10 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -326,7 +341,10 @@ func (node Node) Deposit(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+				c.JSON(http.StatusInternalServerError, response.DepositResponse{
+					Status: 0,
+					Msg:    err.Error(),
+				})
 				return
 			}
 
@@ -335,7 +353,10 @@ func (node Node) Deposit(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+					c.JSON(http.StatusInternalServerError, response.DepositResponse{
+						Status: 0,
+						Msg:    err.Error(),
+					})
 					return
 				}
 			}
@@ -344,7 +365,10 @@ func (node Node) Deposit(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+				c.JSON(http.StatusInternalServerError, response.DepositResponse{
+					Status: 0,
+					Msg:    err.Error(),
+				})
 				return
 			}
 		}
@@ -353,7 +377,10 @@ func (node Node) Deposit(c *gin.Context) {
 		if err != nil {
 			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 				err.Error())
-			c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+			c.JSON(http.StatusInternalServerError, response.DepositResponse{
+				Status: 0,
+				Msg:    err.Error(),
+			})
 			return
 		}
 	}
@@ -363,7 +390,10 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -371,7 +401,10 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -379,7 +412,10 @@ func (node Node) Deposit(c *gin.Context) {
 		err := errors.New("Bad Player id")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -387,7 +423,10 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -395,7 +434,10 @@ func (node Node) Deposit(c *gin.Context) {
 		err := errors.New("No Wallet Found")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -403,7 +445,10 @@ func (node Node) Deposit(c *gin.Context) {
 		err := errors.New("Deposit Money cannot be negative")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -411,7 +456,10 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.DepositErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -421,11 +469,17 @@ func (node Node) Deposit(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.DepositResponse{PlayerID: depositRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
+	c.JSON(http.StatusInternalServerError, response.DepositResponse{
+		Status:        1,
+		PlayerID:      depositRequest.PlayerID,
+		TransactionID: fmt.Sprintf("%x", string(trans.ID))})
 
 	return
 }
@@ -438,7 +492,8 @@ func (node Node) GetBalance(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+		c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -451,7 +506,8 @@ func (node Node) GetBalance(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+				c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+					Status: 0, Msg: err.Error()})
 				return
 			}
 
@@ -460,7 +516,8 @@ func (node Node) GetBalance(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+					c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+						Status: 0, Msg: err.Error()})
 					return
 				}
 			}
@@ -469,7 +526,8 @@ func (node Node) GetBalance(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+				c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+					Status: 0, Msg: err.Error()})
 				return
 			}
 		}
@@ -478,7 +536,8 @@ func (node Node) GetBalance(c *gin.Context) {
 		if err != nil {
 			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 				err.Error())
-			c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+			c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+				Status: 0, Msg: err.Error()})
 			return
 		}
 	}
@@ -487,7 +546,8 @@ func (node Node) GetBalance(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+		c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -495,7 +555,8 @@ func (node Node) GetBalance(c *gin.Context) {
 		err := errors.New("Bad Player id")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.GetBalanceErrorResponse{})
+		c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -503,7 +564,8 @@ func (node Node) GetBalance(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.GetBalanceErrorResponse{})
+		c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
@@ -511,11 +573,14 @@ func (node Node) GetBalance(c *gin.Context) {
 		err := errors.New("No Wallet Found")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.DepositErrorResponse{})
+		c.JSON(http.StatusBadRequest, response.GetBalanceResponse{
+			Status: 0, Msg: err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.GetBalanceResponse{Amount: wallets[0].Money})
+	c.JSON(http.StatusInternalServerError, response.GetBalanceResponse{
+		Status: 1,
+		Amount: wallets[0].Money})
 	return
 }
 
@@ -527,7 +592,10 @@ func (node Node) WithDraw(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -540,7 +608,10 @@ func (node Node) WithDraw(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+				c.JSON(http.StatusInternalServerError, response.DepositResponse{
+					Status: 0,
+					Msg:    err.Error(),
+				})
 				return
 			}
 
@@ -549,7 +620,10 @@ func (node Node) WithDraw(c *gin.Context) {
 				if err != nil {
 					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 						err.Error())
-					c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+					c.JSON(http.StatusInternalServerError, response.DepositResponse{
+						Status: 0,
+						Msg:    err.Error(),
+					})
 					return
 				}
 			}
@@ -558,7 +632,10 @@ func (node Node) WithDraw(c *gin.Context) {
 			if err != nil {
 				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 					err.Error())
-				c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+				c.JSON(http.StatusInternalServerError, response.DepositResponse{
+					Status: 0,
+					Msg:    err.Error(),
+				})
 				return
 			}
 		}
@@ -567,7 +644,10 @@ func (node Node) WithDraw(c *gin.Context) {
 		if err != nil {
 			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 				err.Error())
-			c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+			c.JSON(http.StatusInternalServerError, response.DepositResponse{
+				Status: 0,
+				Msg:    err.Error(),
+			})
 			return
 		}
 	}
@@ -576,7 +656,10 @@ func (node Node) WithDraw(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -584,7 +667,10 @@ func (node Node) WithDraw(c *gin.Context) {
 		err := errors.New("Bad Player id")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -592,7 +678,10 @@ func (node Node) WithDraw(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -600,7 +689,10 @@ func (node Node) WithDraw(c *gin.Context) {
 		err := errors.New("No Wallet Found")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -608,7 +700,10 @@ func (node Node) WithDraw(c *gin.Context) {
 		err := errors.New("WithDraw Money cannot be negative")
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusBadRequest, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -616,7 +711,10 @@ func (node Node) WithDraw(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
@@ -625,9 +723,12 @@ func (node Node) WithDraw(c *gin.Context) {
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())
-		c.JSON(http.StatusInternalServerError, response.WithDrawErrorResponse{})
+		c.JSON(http.StatusInternalServerError, response.DepositResponse{
+			Status: 0,
+			Msg:    err.Error(),
+		})
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.DepositResponse{PlayerID: withDrawRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
+	c.JSON(http.StatusInternalServerError, response.DepositResponse{Status: 1, PlayerID: withDrawRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
 }

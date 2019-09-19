@@ -9,8 +9,8 @@ type CreatePlayerRequest struct {
 	CellPhone string `json:"cell_phone" binding:"required"`
 	Gender    string `json:"gender" binding:"required"`
 	BirthDate string `json:"birthdate" binding:"required"`
-	Currency  string `json:"currency" binding:"required"`
-	CountryID string `json:"countryId" binding:"required"`
+	//Currency  string `json:"currency" binding:"required"`
+	//CountryID string `json:"countryId" binding:"required"`
 }
 
 type GetTokenRequest struct {
@@ -29,13 +29,13 @@ type LaunchGameRequest struct {
 }
 
 type DepositRequest struct {
-	PlayerID string `json:"player_id" binding:"required"`
-	Money    int    `json:"money" binding:"required"`
+	PlayerID string  `json:"player_id" binding:"required"`
+	Money    float32 `json:"money" binding:"required"`
 }
 
 type WithDrawRequest struct {
-	PlayerID string `json:"player_id" binding:"required"`
-	Money    int    `json:"money" binding:"required"`
+	PlayerID string  `json:"player_id" binding:"required"`
+	Money    float32 `json:"money" binding:"required"`
 }
 
 type BalanceRequest struct {

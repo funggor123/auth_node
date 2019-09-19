@@ -18,51 +18,33 @@ type CreatePlayerResponse struct {
 	Currency string `json:"currency" binding:"required"`
 	WalletID string `json:"walletId" binding:"required"`
 	ID       string `json:"id" binding:"required"`
-}
-
-type CreatePlayerErrorResponse struct {
-	Message   string `json:"message" binding:"required"`
-	ErrorCode int    `json:"error_code" binding:"required"`
+	Status   int    `json:"status" binding:"required"`
+	Msg      string `json:"msg" binding:"required"`
 }
 
 type GetTokenResponse struct {
 	Token    string `json:"token" binding:"required"`
 	ExpireAt string `json:"expire_at" binding:"required"`
-}
-
-type GetTokenErrorResponse struct {
-	Error string `json:"error" binding:"required"`
+	Status   int    `json:"status" binding:"required"`
+	Msg      string `json:"msg" binding:"required"`
 }
 
 type LaunchGameResponse struct {
 	PlayURL string `json:"play_url" binding:"required"`
 	Token   string `json:"token" binding:"required"`
-}
-
-type LaunchGameErrorResponse struct {
-	Message   string `json:"message" binding:"required"`
-	ErrorCode string `json:"error_code" binding:"required"`
+	Status  int    `json:"status" binding:"required"`
+	Msg     string `json:"msg" binding:"required"`
 }
 
 type DepositResponse struct {
-	ErrorMessage  string `json:"error_message" binding:"required"`
 	TransactionID string `json:"transaction_id" binding:"required"`
 	PlayerID      string `json:"player_id" binding:"required"`
-	ErrorCode     string `json:"error_code" binding:"required"`
-}
-
-type DepositErrorResponse struct {
-	Error string `json:"error" binding:"required"`
+	Status        int    `json:"status" binding:"required"`
+	Msg           string `json:"msg" binding:"required"`
 }
 
 type GetBalanceResponse struct {
-	Amount int `json:"amount" binding:"required"`
-}
-
-type GetBalanceErrorResponse struct {
-	Error string `json:"error" binding:"required"`
-}
-
-type WithDrawErrorResponse struct {
-	Error string `json:"error" binding:"required"`
+	Amount float32 `json:"money" binding:"required"`
+	Status int     `json:"status" binding:"required"`
+	Msg    string  `json:"msg" binding:"required"`
 }

@@ -1,21 +1,22 @@
 package model
 
 import (
+	"time"
+
 	common "../common"
 	db "../db"
 	"gopkg.in/mgo.v2/bson"
-	"time"
 )
 
 type Transaction struct {
-	ID        			bson.ObjectId `bson:"id" `
-	PlayerID			bson.ObjectId  `bson:"player_id" `	
-	MoneyRemain			int  `bson:"money_remain" `	
-	MoneyExchange		int  `bson:"money_exchange" `	
-	TransactionDate     time.Time `bson:"trans_date"`
+	ID              bson.ObjectId `bson:"id" `
+	PlayerID        bson.ObjectId `bson:"player_id" `
+	MoneyRemain     float32       `bson:"money_remain" `
+	MoneyExchange   float32       `bson:"money_exchange" `
+	TransactionDate time.Time     `bson:"trans_date"`
 }
 
-func GetTransactionByIDFromDB(PlayerID string) ([]Transaction, error){
+func GetTransactionByIDFromDB(PlayerID string) ([]Transaction, error) {
 	var trans []Transaction
 	transCollection, session, err := db.GetCollection(transactionTable, common.GetConfiger().Configs.MongodbName)
 	defer session.Close()
@@ -25,7 +26,6 @@ func GetTransactionByIDFromDB(PlayerID string) ([]Transaction, error){
 	transCollection.Find(bson.M{"player_id": bson.ObjectIdHex(PlayerID)}).All(&trans)
 	return trans, nil
 }
-
 
 func CreateTransactionInDB(trans Transaction) (Transaction, error) {
 	transCollection, session, err := db.GetCollection(transactionTable, common.GetConfiger().Configs.MongodbName)
@@ -42,9 +42,8 @@ func CreateTransactionInDB(trans Transaction) (Transaction, error) {
 	return trans, nil
 }
 
-
 func ClearTransaction() error {
-	err:= db.ClearCollections(transactionTable, common.GetConfiger().Configs.MongodbName)
+	err := db.ClearCollections(transactionTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
 		return err
 	}

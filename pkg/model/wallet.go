@@ -1,22 +1,22 @@
 package model
 
 import (
-	db "../db"
-	common "../common"
 	"errors"
+
+	common "../common"
+	db "../db"
 	"gopkg.in/mgo.v2/bson"
 )
 
 type Wallet struct {
-	ID 			bson.ObjectId  `bson:"id" `
-	Money		int  `bson:"money" `
-
+	ID    bson.ObjectId `bson:"id" `
+	Money float32       `bson:"money" `
 }
 
-func CreateWalletnInDB() (Wallet, error){
+func CreateWalletnInDB() (Wallet, error) {
 	walletCollection, session, err := db.GetCollection(walletTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
-		return  Wallet{}, err
+		return Wallet{}, err
 	}
 	defer session.Close()
 	wallet := Wallet{ID: bson.NewObjectId()}
@@ -28,14 +28,14 @@ func CreateWalletnInDB() (Wallet, error){
 }
 
 func ClearWallet() error {
-	err:= db.ClearCollections(walletTable, common.GetConfiger().Configs.MongodbName)
+	err := db.ClearCollections(walletTable, common.GetConfiger().Configs.MongodbName)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func GetWalletByIDFromDB(walletID bson.ObjectId) ([]Wallet, error){
+func GetWalletByIDFromDB(walletID bson.ObjectId) ([]Wallet, error) {
 	var wallets []Wallet
 	walletCollection, session, err := db.GetCollection(walletTable, common.GetConfiger().Configs.MongodbName)
 	defer session.Close()
@@ -46,7 +46,7 @@ func GetWalletByIDFromDB(walletID bson.ObjectId) ([]Wallet, error){
 	return wallets, nil
 }
 
-func UpdateWalletMoneyInDB(walletID bson.ObjectId, money int) (int, error){
+func UpdateWalletMoneyInDB(walletID bson.ObjectId, money float32) (float32, error) {
 	var wallets []Wallet
 	walletCollection, session, err := db.GetCollection(walletTable, common.GetConfiger().Configs.MongodbName)
 	defer session.Close()
@@ -55,7 +55,7 @@ func UpdateWalletMoneyInDB(walletID bson.ObjectId, money int) (int, error){
 	}
 	walletCollection.Find(bson.M{"id": walletID}).All(&wallets)
 
-	if wallets[0].Money + money < 0 {
+	if wallets[0].Money+money < 0 {
 		return wallets[0].Money, errors.New("The amount of money in the wallet cannot be negative after withdrawal")
 	}
 
@@ -63,4 +63,3 @@ func UpdateWalletMoneyInDB(walletID bson.ObjectId, money int) (int, error){
 	err = walletCollection.Update(selector, bson.M{"$set": bson.M{"money": wallets[0].Money + money}})
 	return wallets[0].Money + money, nil
 }
-
