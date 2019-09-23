@@ -1,0 +1,4 @@
+2019/09/16 02:29:45 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/16 02:29:59 Track - :[[Request Host -  127.0.0.1 | Request - {test test}]]
+2019/09/16 02:30:09 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e827856c00a0dfd5cc605 1231awdaw233 firs34tna34me lastN3434ame email 27115112 gender 1212121 awdaw awdaw}]]
+2019/09/16 02:30:09 Error - :[[Request Host - 127.0.0.1 | Error - Auth Token doesn't match with the agent]]

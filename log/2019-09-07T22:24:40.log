@@ -1,0 +1,8 @@
+2019/09/07 22:24:40 Track - :[[{8090 ./log/  }]]
+2019/09/07 22:24:45 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73926956c00a0c4f13f5e9 username firstname lastName email gender 1212121 awdaw awdaw}]]
+2019/09/07 22:24:53 Track - :[[Request Host -  127.0.0.1 | Request - {cn-CN}]]
+2019/09/07 22:25:07 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73926956c00a0c4f13f5e9 awdawd 5d73bda856c00a66d94ab5b6}]]
+2019/09/07 22:25:07 Error - :[[Request Host - 127.0.0.1 | Error - Bad Player id]]
+2019/09/07 22:25:19 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73bdad56c00a66d94ab5b7 awdawd 5d73bda856c00a66d94ab5b6}]]
+2019/09/07 22:25:22 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73bdad56c00a66d94ab5b7 awdawd 5d73bda856c00a66d94ab5b6}]]
+2019/09/07 22:25:23 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73bdad56c00a66d94ab5b7 awdawd 5d73bda856c00a66d94ab5b6}]]

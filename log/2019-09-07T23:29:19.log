@@ -1,0 +1,4 @@
+2019/09/07 23:29:19 Track - :[[{8090 ./log/  }]]
+2019/09/07 23:29:21 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73926956c00a0c4f13f5e9 username firstname lastName email gender 1212121 awdaw awdaw}]]
+2019/09/07 23:29:30 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d73ccd156c00a147ce91acc 1213}]]
+2019/09/07 23:29:30 Error - :[[Request Host - 127.0.0.1 | Error - Bad Player id]]

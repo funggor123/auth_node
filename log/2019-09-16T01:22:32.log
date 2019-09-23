@@ -1,0 +1,6 @@
+2019/09/16 01:22:32 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/16 01:22:41 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e735856c00a04f2b25125 12312 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:22:41 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e735856c00a04f2b25125 12312 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:22:41 Error - :[[Request Host - 127.0.0.1 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: null }]]
+2019/09/16 01:22:45 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7e735856c00a04f2b25125 1231awd2 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/16 01:22:45 Error - :[[Request Host - 127.0.0.1 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: null }]]

@@ -37,7 +37,7 @@ func StartRouter() {
 func route_register(router *gin.Engine, node *Node) {
 
 	// v1 //
-	v1 := router.Group("v1") 
+	v1 := router.Group("v1")
 	{
 		api := v1.Group("api")
 		{
@@ -51,7 +51,7 @@ func route_register(router *gin.Engine, node *Node) {
 				wallet.POST("/deposit", node.Deposit)
 				wallet.POST("/withdraw", node.WithDraw)
 				wallet.POST("/balance", node.GetBalance)
-			}	
+			}
 		}
 		api.GET("/gamestrings", node.GetGameString)
 		api.POST("/gamelaunch", node.LaunchGame)

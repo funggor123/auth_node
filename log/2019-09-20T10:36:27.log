@@ -1,0 +1,6 @@
+2019/09/20 10:36:27 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/20 10:41:30 Track - :[[Request Host -  125.227.60.79 | Request - { }]]
+2019/09/20 10:41:30 Error - :[[Request Host - 125.227.60.79 | Error - Bad Username/Password/Failed to Authenticate]]
+2019/09/20 10:41:54 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/20 10:46:35 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/20 14:51:48 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]

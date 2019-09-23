@@ -10,6 +10,7 @@ import (
 
 type Transaction struct {
 	ID              bson.ObjectId `bson:"id" `
+	TransIDPlatform string        `bson:"trans_id_platform" `
 	PlayerID        bson.ObjectId `bson:"player_id" `
 	MoneyRemain     float32       `bson:"money_remain" `
 	MoneyExchange   float32       `bson:"money_exchange" `

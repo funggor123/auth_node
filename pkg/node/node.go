@@ -464,7 +464,7 @@ func (node Node) Deposit(c *gin.Context) {
 	}
 
 	trans, err := model.CreateTransactionInDB(model.Transaction{MoneyExchange: depositRequest.Money,
-		MoneyRemain: remainMoney, PlayerID: players[0].ID})
+		MoneyRemain: remainMoney, PlayerID: players[0].ID, TransIDPlatform: depositRequest.TransIDPlatform})
 
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
@@ -719,7 +719,7 @@ func (node Node) WithDraw(c *gin.Context) {
 	}
 
 	trans, err := model.CreateTransactionInDB(model.Transaction{MoneyExchange: -withDrawRequest.Money,
-		MoneyRemain: remainMoney, PlayerID: players[0].ID})
+		MoneyRemain: remainMoney, PlayerID: players[0].ID, TransIDPlatform: withDrawRequest.TransIDPlatform})
 	if err != nil {
 		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
 			err.Error())

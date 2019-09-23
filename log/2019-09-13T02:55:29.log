@@ -1,0 +1,8 @@
+2019/09/13 02:55:30 Track - :[[{8090 ./log/   http://127.0.0.1:8080/game/enter}]]
+2019/09/13 02:55:54 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7695cb56c00a09ce5289d5 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/13 02:55:54 Error - :[[Request Host - 127.0.0.1 | Error - Bad Agent ID]]
+2019/09/13 02:56:06 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94a256c00a1b71af46a5 usernameawd342 firs34tna34me lastN3434ame email gender 1212121 awdaw awdaw}]]
+2019/09/13 02:56:54 Track - :[[Request Host -  127.0.0.1 | Request - {cn-CN}]]
+2019/09/13 02:57:02 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94c656c00a1b71af46a8 http://127.0.0.1/ 5d7a94a256c00a1b71af46a6}]]
+2019/09/13 03:01:18 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94c656c00a1b71af46a8 1213}]]
+2019/09/13 03:01:34 Track - :[[Request Host -  127.0.0.1 | Request JSON - {5d7a94c656c00a1b71af46a8 http://127.0.0.1/ 5d7a94a256c00a1b71af46a6}]]

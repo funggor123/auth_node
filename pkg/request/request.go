@@ -29,13 +29,15 @@ type LaunchGameRequest struct {
 }
 
 type DepositRequest struct {
-	PlayerID string  `json:"player_id" binding:"required"`
-	Money    float32 `json:"money" binding:"required"`
+	TransIDPlatform string  `json:"trans_id_platform" binding:"required"`
+	PlayerID        string  `json:"player_id" binding:"required"`
+	Money           float32 `json:"money" binding:"required"`
 }
 
 type WithDrawRequest struct {
-	PlayerID string  `json:"player_id" binding:"required"`
-	Money    float32 `json:"money" binding:"required"`
+	TransIDPlatform string  `json:"trans_id_platform" binding:"required"`
+	PlayerID        string  `json:"player_id" binding:"required"`
+	Money           float32 `json:"money" binding:"required"`
 }
 
 type BalanceRequest struct {
