@@ -43,3 +43,8 @@ type WithDrawRequest struct {
 type BalanceRequest struct {
 	PlayerID string `json:"player_id" binding:"required"`
 }
+
+type GetTransByPIDRequest struct {
+	PlayerID        string `json:"player_id" binding:"required"`
+	TransIDPlatform string `json:"trans_id_platform" binding:"required"`
+}

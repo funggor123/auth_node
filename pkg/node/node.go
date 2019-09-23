@@ -732,3 +732,106 @@ func (node Node) WithDraw(c *gin.Context) {
 
 	c.JSON(http.StatusInternalServerError, response.DepositResponse{Status: 1, PlayerID: withDrawRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
 }
+
+func (node Node) GetTransactionByPID(c *gin.Context) {
+	var getTransByPIDRequest request.GetTransByPIDRequest
+	err := c.BindJSON(&getTransByPIDRequest)
+	common.GetLogger().Log(e.TRACK, "Request Host - ", common.GetCurrentIP(*c.Request), "|", "Request JSON -",
+		&getTransByPIDRequest)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	value := c.GetHeader("Authorization")
+	if value != "" {
+		n := strings.Index(value, "Bearer ")
+		if n > -1 {
+			tokenStringStartIndex := n + len("Bearer ")
+			tokens, err := model.GetTokenFromDB(value[tokenStringStartIndex:len(value)])
+			if err != nil {
+				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+					err.Error())
+				c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+					Status: 0, Msg: err.Error()})
+				return
+			}
+
+			if len(tokens) == 0 {
+				err := errors.New("No Tokens Found")
+				if err != nil {
+					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+						err.Error())
+					c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+						Status: 0, Msg: err.Error()})
+					return
+				}
+			}
+		} else {
+			err := errors.New("Invalid Auth Token")
+			if err != nil {
+				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+					err.Error())
+				c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+					Status: 0, Msg: err.Error()})
+				return
+			}
+		}
+	} else {
+		err := errors.New("Invalid Auth Token")
+		if err != nil {
+			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+				err.Error())
+			c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+				Status: 0, Msg: err.Error()})
+			return
+		}
+	}
+
+	players, err := model.GetPlayerByIDFromDB(getTransByPIDRequest.PlayerID)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	if len(players) == 0 {
+		err := errors.New("Bad Player id")
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	trans, err := model.GetTransactionByIDFromDB(getTransByPIDRequest.PlayerID, getTransByPIDRequest.TransIDPlatform)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	if len(trans) == 0 {
+		err := errors.New("No Transaction Found")
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetTransByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusInternalServerError, response.GetTransByPIDResponse{
+		Status:        1,
+		MoneyExchange: trans[0].MoneyExchange,
+		MoneyRemain:   trans[0].MoneyRemain,
+		TransactionID: fmt.Sprintf("%x", string(trans[0].ID))})
+
+	return
+}

@@ -48,3 +48,11 @@ type GetBalanceResponse struct {
 	Status int     `json:"status" binding:"required"`
 	Msg    string  `json:"msg" binding:"required"`
 }
+
+type GetTransByPIDResponse struct {
+	MoneyExchange float32 `json:"money_transfer" binding:"required"`
+	MoneyRemain   float32 `json:"money_remain" binding:"required"`
+	TransactionID string  `json:"transaction_id" binding:"required"`
+	Status        int     `json:"status" binding:"required"`
+	Msg           string  `json:"msg" binding:"required"`
+}

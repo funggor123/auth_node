@@ -52,6 +52,10 @@ func route_register(router *gin.Engine, node *Node) {
 				wallet.POST("/withdraw", node.WithDraw)
 				wallet.POST("/balance", node.GetBalance)
 			}
+			tran := api.Group("/transaction")
+			{
+				tran.GET("/get", node.GetTransactionByPID)
+			}
 		}
 		api.GET("/gamestrings", node.GetGameString)
 		api.POST("/gamelaunch", node.LaunchGame)

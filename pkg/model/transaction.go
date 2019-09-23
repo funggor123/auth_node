@@ -17,14 +17,15 @@ type Transaction struct {
 	TransactionDate time.Time     `bson:"trans_date"`
 }
 
-func GetTransactionByIDFromDB(PlayerID string) ([]Transaction, error) {
+func GetTransactionByIDFromDB(PlayerID string, PlatformID string) ([]Transaction, error) {
 	var trans []Transaction
 	transCollection, session, err := db.GetCollection(transactionTable, common.GetConfiger().Configs.MongodbName)
 	defer session.Close()
 	if err != nil {
 		return nil, err
 	}
-	transCollection.Find(bson.M{"player_id": bson.ObjectIdHex(PlayerID)}).All(&trans)
+	selector := bson.M{"$and": []bson.M{bson.M{"player_id": bson.ObjectIdHex(PlayerID)}, bson.M{"trans_id_platform": bson.ObjectIdHex(PlatformID)}}}
+	transCollection.Find(selector).All(&trans)
 	return trans, nil
 }
 
