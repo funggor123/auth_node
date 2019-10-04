@@ -1,0 +1,12 @@
+2019/10/01 10:10:25 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/10/01 10:10:28 Track - :[[Request Host -  127.0.0.1 | Request JSON - 0xc420290080]]
+2019/10/01 10:10:28 Error - :[[Request Host - 127.0.0.1 | Error - No Tokens Found]]
+2019/10/01 10:10:32 Track - :[[Request Host -  127.0.0.1 | Request - {test test}]]
+2019/10/01 10:10:42 Track - :[[Request Host -  127.0.0.1 | Request JSON - 0xc4202907e0]]
+2019/10/01 10:10:42 Error - :[[Request Host - 127.0.0.1 | Error - Bad Player id]]
+2019/10/01 10:10:44 Track - :[[Request Host -  183.178.144.228 | Request JSON - {    email  gender 1212121}]]
+2019/10/01 10:10:44 Error - :[[Request Host - 183.178.144.228 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag]]
+2019/10/01 10:11:09 Track - :[[Request Host -  183.178.144.228 | Request JSON - {    email  gender 1212121}]]
+2019/10/01 10:11:09 Error - :[[Request Host - 183.178.144.228 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag]]

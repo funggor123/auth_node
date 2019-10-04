@@ -57,6 +57,7 @@ func route_register(router *gin.Engine, node *Node) {
 				tran.GET("/get", node.GetTransactionByPID)
 			}
 		}
+		api.POST("/gamerecords", node.GetGameRecordByPID)
 		api.GET("/gamestrings", node.GetGameString)
 		api.POST("/gamelaunch", node.LaunchGame)
 	}

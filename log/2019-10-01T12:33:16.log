@@ -1,0 +1,3 @@
+2019/10/01 12:33:16 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/10/01 12:33:21 Track - :[[Request Host -  127.0.0.1 | Request JSON - 0xc4202432b0]]
+2019/10/01 12:33:21 Error - :[[Request Host - 127.0.0.1 | Error - invalid character '}' looking for beginning of object key string]]

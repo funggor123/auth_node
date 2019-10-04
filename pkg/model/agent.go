@@ -45,7 +45,7 @@ func CreateAgentInDB(agent Agent) error {
 		return err
 	}
 	defer session.Close()
-	agent.ID = bson.NewObjectId()
+	agent.ID = bson.ObjectIdHex("5d8dacfb56c00a034cc0635d")
 	err = agentCollection.Insert(agent)
 	if err != nil {
 		return err

@@ -1,0 +1,75 @@
+test ObjectIdHex("5d8dacfb56c00a034cc0635d")
+game ObjectIdHex("5d92b9b356c00a0a4ec866fd")
+Track -  [{8090 ./log/   http://183.178.144.228:8080/game/enter}]
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] PUT    /v1/api/player            --> _/mnt/d/linux/auth_node/pkg/node.(Node).CreatePlayer-fm (2 handlers)
+[GIN-debug] GET    /v1/api/start/token       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetAgentToken-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/deposit    --> _/mnt/d/linux/auth_node/pkg/node.(Node).Deposit-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/withdraw   --> _/mnt/d/linux/auth_node/pkg/node.(Node).WithDraw-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/balance    --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetBalance-fm (2 handlers)
+[GIN-debug] GET    /v1/api/transaction/get   --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetTransactionByPID-fm (2 handlers)
+[GIN-debug] GET    /v1/api/gamestrings       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetGameString-fm (2 handlers)
+[GIN-debug] POST   /v1/api/gamelaunch        --> _/mnt/d/linux/auth_node/pkg/node.(Node).LaunchGame-fm (2 handlers)
+[GIN-debug] Listening and serving HTTP on :8090
+Track -  [Request Host -  183.178.144.228 | Request JSON - {5d8dacfb56c00a034cc0635d 1231a2wdaw233 firs34tna34me lastN3434ame email  gender 1212121}]
+Error -  [Request Host - 183.178.144.228 | Error - No Tokens Found]
+Track -  [Request Host -  127.0.0.1 | Request - {test test}]
+Track -  [Request Host -  183.178.144.228 | Request JSON - {5d8dacfb56c00a034cc0635d 1231a2wdaw233 firs34tna34me lastN3434ame email  gender 1212121}]
+Track -  [Request Host -  183.178.144.228 | Request JSON - {5d8dacfb56c00a034cc0635d 1231a2wdaw2233 firs34tna34me lastN3434ame email  gender 1212121}]
+Track -  [Request Host -  125.227.60.79 | Request - {test test}]
+Track -  [Request Host -  125.227.60.79 | Request JSON - {5d8dacfb56c00a034cc0635d sk0testv002      }]
+Track -  [Request Host -  125.227.60.79 | Request JSON - 0xc420203e20]
+Track -  [Request Host -  125.227.60.79 | Request JSON - {5d8dacfb56c00a034cc0635d sk0testv002      }]
+Error -  [Request Host - 125.227.60.79 | Error - E11000 duplicate key error collection: test.player index: username_1 dup key: { username: "sk0testv002" }]
+Track -  [Request Host -  125.227.60.79 | Request JSON - 0xc4202f2c40]
+Track -  [Request Host -  125.227.60.79 | Request JSON - 0xc4202f3170]
+Track -  [Request Host -  125.227.60.79 | Request - {test test}]
+Error -  [Request Host - 125.227.60.79 | Error - Key: 'DepositRequest.TransIDPlatform' Error:Field validation for 'TransIDPlatform' failed on the 'required' tag]
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 500
+Track -  [Request Host -  125.227.60.79 | Request JSON - 0xc420401880]
+Error -  [Request Host - 127.0.0.1 | Error - No Tokens Found]
+Track -  [Request Host -  127.0.0.1 | Request JSON - {awdawdawd 5d92b60256c00a0a23ea6937 8.888888e+06}]
+Error -  [Request Host - 127.0.0.1 | Error - Bad Player id]
+Track -  [Request Host -  127.0.0.1 | Request JSON - {awdawdawd 5d92b9da56c00a0a4ec86701 8.888888e+06}]
+test ObjectIdHex("5d8dacfb56c00a034cc0635d")
+game ObjectIdHex("5d92b9b356c00a0a4ec866fd")
+Track -  [{8090 ./log/   http://183.178.144.228:8080/game/enter}]
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] PUT    /v1/api/player            --> _/mnt/d/linux/auth_node/pkg/node.(Node).CreatePlayer-fm (2 handlers)
+[GIN-debug] GET    /v1/api/start/token       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetAgentToken-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/deposit    --> _/mnt/d/linux/auth_node/pkg/node.(Node).Deposit-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/withdraw   --> _/mnt/d/linux/auth_node/pkg/node.(Node).WithDraw-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/balance    --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetBalance-fm (2 handlers)
+[GIN-debug] GET    /v1/api/transaction/get   --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetTransactionByPID-fm (2 handlers)
+[GIN-debug] GET    /v1/api/gamestrings       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetGameString-fm (2 handlers)
+[GIN-debug] POST   /v1/api/gamelaunch        --> _/mnt/d/linux/auth_node/pkg/node.(Node).LaunchGame-fm (2 handlers)
+[GIN-debug] Listening and serving HTTP on :8090
+Track -  [Request Host -  127.0.0.1 | Request JSON - {awdawdawd 5d92c9a756c00a0374b867f6 0.2}]
+2.1
+2.3
+test ObjectIdHex("5d8dacfb56c00a034cc0635d")
+game ObjectIdHex("5d92b9b356c00a0a4ec866fd")
+Track -  [{8090 ./log/   http://183.178.144.228:8080/game/enter}]
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] PUT    /v1/api/player            --> _/mnt/d/linux/auth_node/pkg/node.(Node).CreatePlayer-fm (2 handlers)
+[GIN-debug] GET    /v1/api/start/token       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetAgentToken-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/deposit    --> _/mnt/d/linux/auth_node/pkg/node.(Node).Deposit-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/withdraw   --> _/mnt/d/linux/auth_node/pkg/node.(Node).WithDraw-fm (2 handlers)
+[GIN-debug] POST   /v1/api/wallet/balance    --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetBalance-fm (2 handlers)
+[GIN-debug] GET    /v1/api/transaction/get   --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetTransactionByPID-fm (2 handlers)
+[GIN-debug] POST   /v1/api/gamerecords       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetGameRecordByPID-fm (2 handlers)
+[GIN-debug] GET    /v1/api/gamestrings       --> _/mnt/d/linux/auth_node/pkg/node.(Node).GetGameString-fm (2 handlers)
+[GIN-debug] POST   /v1/api/gamelaunch        --> _/mnt/d/linux/auth_node/pkg/node.(Node).LaunchGame-fm (2 handlers)
+[GIN-debug] Listening and serving HTTP on :8090
+Track -  [Request Host -  175.159.120.182 | Request - {test test}]
+Track -  [Request Host -  125.227.60.79 | Request - {test test}]
+Track -  [Request Host -  125.227.60.79 | Request JSON - 0xc420457880]

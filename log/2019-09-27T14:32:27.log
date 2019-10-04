@@ -1,0 +1,132 @@
+2019/09/27 14:32:27 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/09/27 14:39:13 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/27 14:39:13 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:39:13 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:40:04 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/27 14:40:04 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:40:04 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:40:21 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:40:21 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:41:23 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:41:23 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:42:13 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/27 14:42:50 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:42:50 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:45:38 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:45:38 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:49:08 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:49:08 Error - :[[Request Host - 125.227.60.79 | Error - invalid character 'u' looking for beginning of value]]
+2019/09/27 14:49:53 Track - :[[Request Host -  125.227.60.79 | Request JSON - {       }]]
+2019/09/27 14:49:53 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.Email' Error:Field validation for 'Email' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.Gender' Error:Field validation for 'Gender' failed on the 'required' tag
+Key: 'CreatePlayerRequest.BirthDate' Error:Field validation for 'BirthDate' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 14:54:05 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 14:54:05 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag]]
+2019/09/27 14:55:47 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 14:55:47 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 14:56:18 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 14:56:18 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 15:01:34 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:01:34 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag]]
+2019/09/27 15:09:24 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:09:24 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag]]
+2019/09/27 15:09:45 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:09:45 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag]]
+2019/09/27 15:09:47 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:09:47 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 15:23:29 Track - :[[Request Host -  125.227.60.79 | Request - {test test}]]
+2019/09/27 15:23:29 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:23:29 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag]]
+2019/09/27 15:23:58 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:23:58 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 15:24:55 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:24:55 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag]]
+2019/09/27 15:26:10 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:26:10 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag]]
+2019/09/27 15:28:18 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:28:18 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag]]
+2019/09/27 15:34:15 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:34:15 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag]]
+2019/09/27 15:34:57 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:34:57 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag]]
+2019/09/27 15:38:35 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:38:35 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag]]
+2019/09/27 15:39:05 Track - :[[Request Host -  125.227.60.79 | Request JSON - {    test@email.com  F 19880808}]]
+2019/09/27 15:39:05 Error - :[[Request Host - 125.227.60.79 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag]]
+2019/09/27 15:45:37 Track - :[[Request Host -  175.159.126.208 | Request JSON - {       }]]
+2019/09/27 15:45:37 Error - :[[Request Host - 175.159.126.208 | Error - invalid character '}' looking for beginning of object key string]]
+2019/09/27 15:46:05 Track - :[[Request Host -  175.159.126.208 | Request JSON - {5d7e827856c00a0dfd5cc605 1231awdaw233   email   }]]
+2019/09/27 15:46:05 Error - :[[Request Host - 175.159.126.208 | Error - Key: 'CreatePlayerRequest.FirstName' Error:Field validation for 'FirstName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.LastName' Error:Field validation for 'LastName' failed on the 'required' tag
+Key: 'CreatePlayerRequest.CellPhone' Error:Field validation for 'CellPhone' failed on the 'required' tag
+Key: 'CreatePlayerRequest.Gender' Error:Field validation for 'Gender' failed on the 'required' tag
+Key: 'CreatePlayerRequest.BirthDate' Error:Field validation for 'BirthDate' failed on the 'required' tag]]

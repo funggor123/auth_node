@@ -2,6 +2,7 @@ package model
 
 import (
 	"errors"
+	"fmt"
 
 	common "../common"
 	db "../db"
@@ -58,7 +59,8 @@ func UpdateWalletMoneyInDB(walletID bson.ObjectId, money float32) (float32, erro
 	if wallets[0].Money+money < 0 {
 		return wallets[0].Money, errors.New("The amount of money in the wallet cannot be negative after withdrawal")
 	}
-
+	fmt.Println(wallets[0].Money)
+	fmt.Println(wallets[0].Money + money)
 	selector := bson.M{"id": walletID}
 	err = walletCollection.Update(selector, bson.M{"$set": bson.M{"money": wallets[0].Money + money}})
 	return wallets[0].Money + money, nil

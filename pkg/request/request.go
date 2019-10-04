@@ -1,14 +1,14 @@
 package request
 
 type CreatePlayerRequest struct {
-	AgentID   string `json:"agentId" binding:"required"`
-	UserName  string `json:"username" binding:"required"`
-	FirstName string `json:"firstName" binding:"required"`
-	LastName  string `json:"lastName" binding:"required"`
-	Email     string `json:"email" binding:"required"`
-	CellPhone string `json:"cell_phone" binding:"required"`
-	Gender    string `json:"gender" binding:"required"`
-	BirthDate string `json:"birthdate" binding:"required"`
+	AgentID   string `json:"agent_id" binding:"required"`
+	UserName  string `json:"user_name" binding:"required"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Email     string `json:"email"`
+	CellPhone string `json:"cellphone"`
+	Gender    string `json:"gender"`
+	BirthDate string `json:"birthdate"`
 	//Currency  string `json:"currency" binding:"required"`
 	//CountryID string `json:"countryId" binding:"required"`
 }
@@ -47,4 +47,8 @@ type BalanceRequest struct {
 type GetTransByPIDRequest struct {
 	PlayerID        string `json:"player_id" binding:"required"`
 	TransIDPlatform string `json:"trans_id_platform" binding:"required"`
+}
+
+type GetGameRecordByPIDRequest struct {
+	PlayerID string `json:"player_id" binding:"required"`
 }

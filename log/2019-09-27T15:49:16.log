@@ -1,0 +1,5 @@
+2019/09/27 15:49:16 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/09/27 15:50:42 Track - :[[Request Host -  175.159.126.208 | Request - { }]]
+2019/09/27 15:50:42 Error - :[[Request Host - 175.159.126.208 | Error - Bad Username/Password/Failed to Authenticate]]
+2019/09/27 15:50:57 Track - :[[Request Host -  175.159.126.208 | Request - {test test}]]
+2019/09/27 15:51:21 Track - :[[Request Host -  175.159.126.208 | Request JSON - {5d8dacfb56c00a034cc0635d    email   }]]

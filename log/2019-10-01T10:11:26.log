@@ -1,0 +1,4 @@
+2019/10/01 10:11:26 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/10/01 10:11:28 Track - :[[Request Host -  183.178.144.228 | Request JSON - {    email  gender 1212121}]]
+2019/10/01 10:11:28 Error - :[[Request Host - 183.178.144.228 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag
+Key: 'CreatePlayerRequest.UserName' Error:Field validation for 'UserName' failed on the 'required' tag]]

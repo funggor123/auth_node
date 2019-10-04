@@ -1,5 +1,9 @@
 package response
 
+import (
+	model "../model"
+)
+
 type CreatePlayerResponse struct {
 	AgentName      string `json:"agentName" binding:"required"`
 	ActiveSessions string `json:"active_sessions" binding:"required"`
@@ -55,4 +59,10 @@ type GetTransByPIDResponse struct {
 	TransactionID string  `json:"transaction_id" binding:"required"`
 	Status        int     `json:"status" binding:"required"`
 	Msg           string  `json:"msg" binding:"required"`
+}
+
+type GetGameRecordByPIDResponse struct {
+	GameRecords []model.GameRecord `json:"game_record" binding:"required"`
+	Status      int                `json:"status" binding:"required"`
+	Msg         string             `json:"msg" binding:"required"`
 }

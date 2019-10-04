@@ -1,0 +1,7 @@
+2019/09/27 15:59:30 Track - :[[{8090 ./log/   http://183.178.144.228:8080/game/enter}]]
+2019/09/27 15:59:35 Track - :[[Request Host -  175.159.126.208 | Request JSON - { 1231awdaw233   email   }]]
+2019/09/27 15:59:35 Error - :[[Request Host - 175.159.126.208 | Error - Key: 'CreatePlayerRequest.AgentID' Error:Field validation for 'AgentID' failed on the 'required' tag]]
+2019/09/27 15:59:46 Track - :[[Request Host -  175.159.126.208 | Request JSON - {5d8dacfb56c00a034cc0635d 1231awdaw233   email   }]]
+2019/09/27 15:59:46 Error - :[[Request Host - 175.159.126.208 | Error - No Tokens Found]]
+2019/09/27 15:59:51 Track - :[[Request Host -  175.159.126.208 | Request - {test test}]]
+2019/09/27 15:59:59 Track - :[[Request Host -  175.159.126.208 | Request JSON - {5d8dacfb56c00a034cc0635d 1231awdaw233   email   }]]

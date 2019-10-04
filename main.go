@@ -5,9 +5,9 @@ import (
 	"time"
 
 	common "./pkg/common"
-	node "./pkg/node"
-	model "./pkg/model"
 	db "./pkg/db"
+	model "./pkg/model"
+	node "./pkg/node"
 )
 
 func main() {
@@ -20,10 +20,10 @@ func main() {
 	common.GetLogger().SetLogFilePath(common.GetConfiger().Configs.LogDir)
 
 	db.CheckMongoDBConnection()
-	
-	model.Clear()
-	
-	model.Init()
+
+	//model.Clear()
+
+	//model.Init()
 
 	model.CreateDefaultAgent()
 	model.CreateDefaultGame()

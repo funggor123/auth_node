@@ -312,7 +312,7 @@ func (node Node) LaunchGame(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 0, Msg: err.Error()})
 		return
 	}
-	c.JSON(http.StatusInternalServerError, response.LaunchGameResponse{Status: 1, Token: play.TokenString,
+	c.JSON(http.StatusOK, response.LaunchGameResponse{Status: 1, Token: play.TokenString,
 		PlayURL: common.GetConfiger().Configs.GameNodeAddress + "?game_id=" + fmt.Sprintf("%x", string(play.GameID)) +
 			"&player_id=" + fmt.Sprintf("%x", string(play.PlayerID)) +
 			"&token=" + play.TokenString +
@@ -476,7 +476,7 @@ func (node Node) Deposit(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.DepositResponse{
+	c.JSON(http.StatusOK, response.DepositResponse{
 		Status:        1,
 		PlayerID:      depositRequest.PlayerID,
 		TransactionID: fmt.Sprintf("%x", string(trans.ID))})
@@ -578,7 +578,7 @@ func (node Node) GetBalance(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.GetBalanceResponse{
+	c.JSON(http.StatusOK, response.GetBalanceResponse{
 		Status: 1,
 		Amount: wallets[0].Money})
 	return
@@ -730,7 +730,7 @@ func (node Node) WithDraw(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.DepositResponse{Status: 1, PlayerID: withDrawRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
+	c.JSON(http.StatusOK, response.DepositResponse{Status: 1, PlayerID: withDrawRequest.PlayerID, TransactionID: fmt.Sprintf("%x", string(trans.ID))})
 }
 
 func (node Node) GetTransactionByPID(c *gin.Context) {
@@ -827,11 +827,103 @@ func (node Node) GetTransactionByPID(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusInternalServerError, response.GetTransByPIDResponse{
+	c.JSON(http.StatusOK, response.GetTransByPIDResponse{
 		Status:        1,
 		MoneyExchange: trans[0].MoneyExchange,
 		MoneyRemain:   trans[0].MoneyRemain,
 		TransactionID: fmt.Sprintf("%x", string(trans[0].ID))})
 
 	return
+}
+
+func (node Node) GetGameRecordByPID(c *gin.Context) {
+	var getGameRecordByPID request.GetGameRecordByPIDRequest
+	err := c.BindJSON(&getGameRecordByPID)
+	common.GetLogger().Log(e.TRACK, "Request Host - ", common.GetCurrentIP(*c.Request), "|", "Request JSON -",
+		&getGameRecordByPID)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	value := c.GetHeader("Authorization")
+	if value != "" {
+		n := strings.Index(value, "Bearer ")
+		if n > -1 {
+			tokenStringStartIndex := n + len("Bearer ")
+			tokens, err := model.GetTokenFromDB(value[tokenStringStartIndex:len(value)])
+			if err != nil {
+				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+					err.Error())
+				c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+					Status: 0, Msg: err.Error()})
+				return
+			}
+
+			if len(tokens) == 0 {
+				err := errors.New("No Tokens Found")
+				if err != nil {
+					common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+						err.Error())
+					c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+						Status: 0, Msg: err.Error()})
+					return
+				}
+			}
+		} else {
+			err := errors.New("Invalid Auth Token")
+			if err != nil {
+				common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+					err.Error())
+				c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+					Status: 0, Msg: err.Error()})
+				return
+			}
+		}
+	} else {
+		err := errors.New("Invalid Auth Token")
+		if err != nil {
+			common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+				err.Error())
+			c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+				Status: 0, Msg: err.Error()})
+			return
+		}
+	}
+
+	players, err := model.GetPlayerByIDFromDB(getGameRecordByPID.PlayerID)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	if len(players) == 0 {
+		err := errors.New("Bad Player id")
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	gameRecords, err := model.GetGameRecord(getGameRecordByPID.PlayerID)
+	if err != nil {
+		common.GetLogger().Log(e.ERROR, "Request Host -", common.GetCurrentIP(*c.Request), "|", "Error -",
+			err.Error())
+		c.JSON(http.StatusBadRequest, response.GetGameRecordByPIDResponse{
+			Status: 0, Msg: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response.GetGameRecordByPIDResponse{
+		Status:      1,
+		GameRecords: gameRecords,
+	})
+
 }
